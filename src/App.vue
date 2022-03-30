@@ -1,10 +1,19 @@
 <script setup>
-
+  import { reactive } from 'vue'
+  const state = reactive({
+    isPlaying: false,
+    delay: null,
+  })
+  function start() {
+    state.isPlaying = true
+    state.delay = 2000 + Math.random()*5000
+    console.log(state.delay)
+  }
 </script>
 
 <template>
   <h1>Mirza Reaction Timer</h1>
-  <button>play</button>
+  <button @click="start">play</button>
 </template>
 
 <style>
