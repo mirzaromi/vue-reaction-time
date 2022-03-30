@@ -1,19 +1,30 @@
 <script setup>
   import { reactive } from 'vue'
+  import Block from './components/Block.vue'
   const state = reactive({
     isPlaying: false,
     delay: null,
+    score: null,
+    showResult: false,
   })
   function start() {
     state.isPlaying = true
     state.delay = 2000 + Math.random()*5000
+    state.showResult = false
     console.log(state.delay)
+  }
+  function endGame(reactionTime) {
+    state.score = reactionTime
+    state.isPlaying = false
+    state.showResult = true
   }
 </script>
 
 <template>
   <h1>Mirza Reaction Timer</h1>
-  <button @click="start">play</button>
+  <button @click="start" :disabled="state.isPlaying">play</button>
+  <p v-if="state.showResult">reaction time = {{state.score}} ms</p>
+  <Block v-if="state.isPlaying" :delay="state.delay" @end="endGame"/>
 </template>
 
 <style>
