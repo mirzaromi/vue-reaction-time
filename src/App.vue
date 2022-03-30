@@ -1,6 +1,8 @@
 <script setup>
   import { reactive } from 'vue'
   import Block from './components/Block.vue'
+  import Result from './components/Result.vue'
+
   const state = reactive({
     isPlaying: false,
     delay: null,
@@ -23,8 +25,8 @@
 <template>
   <h1>Mirza Reaction Timer</h1>
   <button @click="start" :disabled="state.isPlaying">play</button>
-  <p v-if="state.showResult">reaction time = {{state.score}} ms</p>
   <Block v-if="state.isPlaying" :delay="state.delay" @end="endGame"/>
+  <Result v-if="state.showResult" :score="state.score"/>
 </template>
 
 <style>
@@ -39,4 +41,21 @@
   font-weight: normal;
 }
 
+button {
+  background-color: #1effaf;
+  color: rgb(49, 49, 49);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  margin: 10px;
+  font-weight: bold;
+}
+
+button[disabled]{
+  opacity: 0.2;
+  cursor: not-allowed;
+}
 </style>
