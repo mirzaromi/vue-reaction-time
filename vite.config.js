@@ -11,5 +11,5 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  base: '/mirzaromi.github.io'
+  base: '/vue-reaction-time'
 })
