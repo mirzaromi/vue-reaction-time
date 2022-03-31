@@ -58,4 +58,8 @@ button[disabled]{
   opacity: 0.2;
   cursor: not-allowed;
 }
+
+@media (min-width:480px) {
+    
+}
 </style>
