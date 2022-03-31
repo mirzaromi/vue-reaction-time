@@ -14,12 +14,12 @@ import { onMounted } from "@vue/runtime-core"
 
     onMounted(() => {
         if (ResultProp.score<250) {
-            ResultData.rank = `Ninja Finger`
+            ResultData.rank = `Super sekaliii, anda dapat merespon sesuatu yang bahkan belum terjadi`
         } 
         else if (ResultProp.score<400) {
-            ResultData.rank = `Rapid Reflex`
+            ResultData.rank = `boleh juga responnya, dengan respon secepat ini anda bisa menepuk lalat sebelum bergerak`
         } else {
-            ResultData.rank = `Snail Pace`
+            ResultData.rank = `Respon anda lambat, gak heran kalo doi sudah hilang`
         }
     })
 </script>
