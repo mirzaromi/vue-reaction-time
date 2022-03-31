@@ -11,5 +11,6 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  base: '/vue-reaction-time'
+  publicPath: process.env.NODE_ENV === 'production' ? '/vue-reaction-time/' : '/'
+  // base: '/'
 })
