@@ -1,5 +1,5 @@
 <template>
-    <p class="reaction">Reaction Time = {{score}} ms</p>
+    <p class="reaction">Your Reaction Time = {{score}} ms</p>
     <p class="rank">{{ResultData.rank}}</p>
 </template>
 

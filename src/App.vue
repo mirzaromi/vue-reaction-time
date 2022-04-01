@@ -10,6 +10,7 @@
     score: null,
     showResult: false,
     formShow: true,
+    usarname: null,
   })
   function start() {
     state.isPlaying = true
@@ -22,11 +23,16 @@
     state.isPlaying = false
     state.showResult = true
   }
+
+  function afterForm(nama) {
+    state.formShow = !state.formShow
+    state.usarname = nama
+  }
 </script>
 
 <template>
-  <Form v-if="state.formShow"/>
-  <h1>Mirza Reaction Timer</h1>
+  <Form v-if="state.formShow" @next="afterForm" />
+  <h1>{{ state.usarname }} Reaction Timer</h1>
   <button @click="start" :disabled="state.isPlaying">play</button>
   <Block v-if="state.isPlaying" :delay="state.delay" @end="endGame"/>
   <Result v-if="state.showResult" :score="state.score"/>
