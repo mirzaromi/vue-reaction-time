@@ -3,6 +3,8 @@
         <div class="form-wrapper">
             <p>Kasih Tau Namamu yaa!</p>
             <input type="text" class="input">
+            <br>
+            <button class="btn">Lanjut</button>
         </div>
     </form>
 </template>
@@ -34,6 +36,11 @@
         width: 200px;
         height: 30px;
         border: none;
+        border-radius: 7px;
+        margin-bottom: 40px;
+        text-align: center;
+        font-size: 1.25rem;
+        font-weight: 500;
     }
 
     .form .input:focus{
@@ -43,5 +50,9 @@
 
     .form .input:focus-visible{
         outline: none;
+    }
+
+    .form .btn {
+        width: 100px;
     }
 </style>

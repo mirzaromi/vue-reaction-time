@@ -46,7 +46,7 @@
 
 button {
   background-color: #1effaf;
-  color: rgb(49, 49, 49);
+  color: rgb(41, 41, 41);
   border: none;
   padding: 8px 16px;
   border-radius: 4px;
