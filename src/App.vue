@@ -4,6 +4,7 @@
   import Result from './components/Result.vue'
   import Form from './components/Form.vue'
 
+
   const state = reactive({
     isPlaying: false,
     delay: null,
@@ -28,14 +29,24 @@
     state.formShow = !state.formShow
     state.usarname = nama
   }
+
+  function reset() {
+    state.formShow = !state.formShow
+    state.usarname = null
+    state.isPlaying = false
+    state.showResult = false
+    state.score = null
+    state.delay = null
+  }
 </script>
 
 <template>
   <Form v-if="state.formShow" @next="afterForm" />
   <h1>{{ state.usarname }} Reaction Timer</h1>
+  <button class="reset" @click="reset">Reset</button>
   <button @click="start" :disabled="state.isPlaying">play</button>
   <Block v-if="state.isPlaying" :delay="state.delay" @end="endGame"/>
-  <Result v-if="state.showResult" :score="state.score"/>
+  <Result v-if="state.showResult" :score="state.score" :username="state.usarname"/>
 </template>
 
 <style>
@@ -66,6 +77,11 @@ button {
 button[disabled]{
   opacity: 0.2;
   cursor: not-allowed;
+}
+
+.reset{
+  background-color: #ff1e69;
+  color: #fff;
 }
 
 @media (min-width:480px) {
