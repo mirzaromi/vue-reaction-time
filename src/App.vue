@@ -2,12 +2,14 @@
   import { reactive } from 'vue'
   import Block from './components/Block.vue'
   import Result from './components/Result.vue'
+  import Form from './components/Form.vue'
 
   const state = reactive({
     isPlaying: false,
     delay: null,
     score: null,
     showResult: false,
+    formShow: true,
   })
   function start() {
     state.isPlaying = true
@@ -23,6 +25,7 @@
 </script>
 
 <template>
+  <Form v-if="state.formShow"/>
   <h1>Mirza Reaction Timer</h1>
   <button @click="start" :disabled="state.isPlaying">play</button>
   <Block v-if="state.isPlaying" :delay="state.delay" @end="endGame"/>
@@ -35,7 +38,7 @@
 #app {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem 0px;
   text-align: center;
   color: #38eba6;
   font-weight: normal;
